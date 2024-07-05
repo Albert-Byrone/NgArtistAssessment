@@ -12,7 +12,7 @@
   <mat-card-footer>Footer</mat-card-footer>
 </mat-card> -->
 
-
+<mat-progress-bar *ngIf="isLoading" mode="indeterminate"></mat-progress-bar>
 <mat-card class="d-flex">
   <mat-card-content class="d-flex align-items-center">
     <ng-container *ngIf="!isLoading; else loading">
