@@ -7,17 +7,17 @@ export type MenuItem = {
 
 export const MENU_ITEMS: MenuItem[] = [
   {
-    icon: 'dashboard',
+    icon: 'person',
     label: 'Home',
     route: 'dashboard',
   },
   {
-    icon: 'video_library',
+    icon: 'list_alt',
     label: 'Order History',
     route: 'order-history/:id',
   },
   {
-    icon: 'logout',
+    icon: 'backspace',
     label: 'Logout',
   },
   {
