@@ -8,4 +8,15 @@ import { AuthService } from '../auth/services/auth.service';
 })
 export class DashboardComponent {
   currentUser = inject(AuthService);
+  isLoading = false;
+
+  constructor() {
+    if (
+      this.currentUser.authStatus$['_value']['meta']['stateLoaded'] === false
+    ) {
+      this.isLoading = true;
+    }
+
+    console.log(this.isLoading);
+  }
 }
