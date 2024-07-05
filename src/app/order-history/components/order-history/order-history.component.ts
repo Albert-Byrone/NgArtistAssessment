@@ -49,13 +49,17 @@ export class OrderHistoryComponent implements OnInit {
 
       this.orderHistoryService.getOrderHistoryResource(url, params).subscribe({
         next: (value: OrderHistoryResource) => {
-          this.orderHistory$.next(value);
-          this.isLoading = false; // Add this line
+          if (value && value.data && value.data.length > 0) {
+            this.orderHistory$.next(value);
+            this.isLoading = false;
+          } else {
+            this.isLoading = true; // Keep loader if no results
+          }
 
           console.log('ORDER', this.orderHistory$);
         },
         error: (error) => {
-          this.isLoading = false; // Add this line
+          this.isLoading = true; // Keep loader on error
 
           console.error('orderHistoryHttpError - 404', error);
         },
