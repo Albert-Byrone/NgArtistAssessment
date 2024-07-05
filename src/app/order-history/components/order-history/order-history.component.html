@@ -1,5 +1,5 @@
-<div *ngIf="isLoading" class="loader">Loading...</div>
-
+<!-- <div *ngIf="isLoading" class="loader">Loading...</div> -->
+<mat-progress-bar *ngIf="isLoading" mode="indeterminate"></mat-progress-bar>
 <div *ngIf="!isLoading">
 
   <ng-container *ngIf="orderHistoryObservable$ | async as v">
@@ -41,5 +41,5 @@
   </ng-container>
 
   <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons aria-label="Select page of periodic elements">
-  </mat-paginator>di
+  </mat-paginator>
 </div>
