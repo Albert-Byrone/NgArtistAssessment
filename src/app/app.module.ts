@@ -23,6 +23,8 @@ import { MatListModule } from '@angular/material/list';
 import { OrdersComponent } from './orders/orders.component';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatTableModule } from '@angular/material/table';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
 
 @NgModule({
   declarations: [
@@ -52,9 +54,8 @@ import { MatTableModule } from '@angular/material/table';
     MatListModule,
     MatPaginatorModule,
     MatTableModule,
-    MatTableModule,
-    MatPaginatorModule,
-    MatButtonModule,
+    MatToolbarModule,
+    MatProgressBarModule,
   ],
   providers: [
     provideAnimationsAsync(),
