@@ -18,7 +18,8 @@ export class OrderHistoryComponent implements OnInit {
   route = inject(ActivatedRoute);
   router = inject(Router);
   orderHistoryService = inject(OrderHistoryService);
-  artistId: string;
+  artistId: string;]
+  isLoading = true
 
   displayedColumns: string[] = [
     'order',
@@ -49,10 +50,14 @@ export class OrderHistoryComponent implements OnInit {
       this.orderHistoryService.getOrderHistoryResource(url, params).subscribe({
         next: (value: OrderHistoryResource) => {
           this.orderHistory$.next(value);
+          this.isLoading = false; // Add this line
+
 
           console.log('ORDER', this.orderHistory$);
         },
         error: (error) => {
+          this.isLoading = false; // Add this line
+
           console.error('orderHistoryHttpError - 404', error);
         },
       });
