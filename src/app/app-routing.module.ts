@@ -8,7 +8,7 @@ import { authenticationGuard } from './auth/services/authentication.guard';
 import { PageNotFoundComponent } from './shared/page-not-found/page-not-found.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
+  { path: '', redirectTo: 'login', pathMatch: 'full' },
   {
     path: 'login',
     component: LoginComponent,
