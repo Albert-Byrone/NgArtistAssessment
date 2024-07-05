@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, computed, inject, signal } from '@angular/core';
 import { authenticationGuard } from './auth/services/authentication.guard';
 import { Router } from '@angular/router';
 import { take } from 'rxjs/operators';
@@ -23,4 +23,7 @@ export class AppComponent {
     }
     return false;
   }
+
+  collapsed = signal(false);
+  sidenavWidth = computed(() => (this.collapsed() ? '65px' : '250px'));
 }
