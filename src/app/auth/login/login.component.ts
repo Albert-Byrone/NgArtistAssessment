@@ -22,6 +22,7 @@ export class LoginComponent implements OnInit, OnDestroy {
   isTnCsChecked: boolean;
   isNewsLetterChecked: boolean;
   subs = new SubSink();
+  isLoading = false;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -67,15 +68,22 @@ export class LoginComponent implements OnInit, OnDestroy {
     const formValues = submittedForm.value;
 
     console.log('formValues', formValues);
+    this.isLoading = true; // Start the spinner
     this.authService
       .login(formValues)
       .pipe(
         filter((data) => data.meta.LoginStatus),
         tap((data) => {
+          this.isLoading = false; // Stop the spinner on success
           return this.router.navigateByUrl('/dashboard');
         })
       )
-      .subscribe();
+      .subscribe({
+        error: (err) => {
+          this.isLoading = false; // Stop the spinner on error
+          console.error('Login failed', err);
+        },
+      });
   }
 
   logout() {
