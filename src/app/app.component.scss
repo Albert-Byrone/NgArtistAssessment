@@ -8,3 +8,18 @@ mat-sidenav-content {
   // background-color: black;
   // color: aqua;
 }
+mat-toolbar {
+  background-color: #546e7a;
+  height: 30px;
+  display: flex;
+}
+
+mat-toolbar img {
+  height: 100%; /* Make the image height 100% of the toolbar height */
+  object-fit: contain; /* Ensure the image scales correctly */
+}
+
+mat-sidenav,
+mat-sidenav-content {
+  transition: all 500ms ease-in-out;
+}
