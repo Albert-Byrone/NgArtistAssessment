@@ -1,11 +1,19 @@
 <div *ngIf="isAuthenticated()">
-  <app-header></app-header>
+  <mat-toolbar>
+    <!-- <mat-progress-bar mode="indeterminate"></mat-progress-bar> -->
+    <button mat-icon-button (click)="collapsed.set(!collapsed())">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <img src="https://artists-dev.wraptious.com/assets/img/branding/wraptious-artists-logo-2.png" alt="logo" />
+  </mat-toolbar>
+  <!-- <app-header></app-header> -->
 </div>
+
 <mat-sidenav-container>
-  <mat-sidenav opened mode="side" [style.width]="'250px'">
-    <app-side-nav />
+  <mat-sidenav opened mode="side" [style.width]="sidenavWidth()">
+    <app-side-nav [collapsed]="collapsed()" />
   </mat-sidenav>
-  <mat-sidenav-content class="content">
+  <mat-sidenav-content class="content" [style.margin-left]="sidenavWidth()">
     <router-outlet />
   </mat-sidenav-content>
 </mat-sidenav-container>
