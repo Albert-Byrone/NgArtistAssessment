@@ -16,7 +16,13 @@
 <mat-card class="d-flex">
   <mat-card-content class="d-flex align-items-center">
     <ng-container *ngIf="!isLoading; else loading">
-      <img alt="profile-pic" src="https://pro.propeller.in/assets/images/Keith-Dowd.png" width="120" />
+      <div class="d-flex flex-column align-items-center">
+        <img alt="profile-pic" src="https://pro.propeller.in/assets/images/Keith-Dowd.png" width="120"
+          class="rounded-circle border border-danger" />
+        <div class="mt-2 text-danger">
+          <mat-icon>add_a_photo</mat-icon>
+        </div>
+      </div>
       <div class="p-4">
         <span><strong>{{ currentUser.authStatus$.value.data.attributes.name }} Details</strong></span>
         <p>Email: {{ currentUser.authStatus$.value.data.attributes.email }}</p>
