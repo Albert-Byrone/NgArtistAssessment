@@ -18,8 +18,8 @@ export class OrderHistoryComponent implements OnInit {
   route = inject(ActivatedRoute);
   router = inject(Router);
   orderHistoryService = inject(OrderHistoryService);
-  artistId: string;]
-  isLoading = true
+  artistId: string;
+  isLoading = true;
 
   displayedColumns: string[] = [
     'order',
@@ -51,7 +51,6 @@ export class OrderHistoryComponent implements OnInit {
         next: (value: OrderHistoryResource) => {
           this.orderHistory$.next(value);
           this.isLoading = false; // Add this line
-
 
           console.log('ORDER', this.orderHistory$);
         },
