@@ -11,11 +11,14 @@ import { Observable, Subject } from 'rxjs';
 import { shareReplay, tap } from 'rxjs/operators';
 import { SubSink } from 'subsink';
 
-import {functionToObjectBinder, genericRetryStrategy} from "../../shared/common-functions";
-import {ConnectionStatusService} from "../../shared/services/connection-status.service";
-import {UiService} from "../../shared/services/ui.service";
-import {LOCAL_STORAGE_TOKEN} from "../../shared/storage/local-storage-config";
-import {InterceptorService} from "../../shared/services/interceptor.service";
+import {
+  functionToObjectBinder,
+  genericRetryStrategy,
+} from '../../shared/common-functions';
+import { ConnectionStatusService } from '../../shared/services/connection-status.service';
+import { UiService } from '../../shared/services/ui.service';
+import { LOCAL_STORAGE_TOKEN } from '../../shared/storage/local-storage-config';
+import { InterceptorService } from '../../shared/services/interceptor.service';
 
 // Inject with Credentials
 @Injectable()
@@ -85,11 +88,9 @@ export class HttpRequestInterceptor implements HttpInterceptor, OnDestroy {
     return next.handle(req).pipe(
       tap(
         (incoming: HttpResponse<any>) => {
-          // console.log('-------HttpResponse---------', incoming);
           this.interceptorService.handleInterceptorResponse(incoming);
         },
         (err: HttpErrorResponse) => {
-          // console.log('-------HttpErrorResponse---------', err);
           this.interceptorService.handleInterceptorResponse(err);
         }
       ),

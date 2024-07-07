@@ -16,7 +16,5 @@ export class DashboardComponent {
     ) {
       this.isLoading = true;
     }
-
-    console.log(this.isLoading);
   }
 }

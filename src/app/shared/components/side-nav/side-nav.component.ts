@@ -39,7 +39,7 @@ export class SideNavComponent {
     // get the current user id and pass it to the order-history route
     const userId = this.currentUser?.initialAuthState?.data?.attributes?.owner;
     if (userId) {
-      console.log(this.currentUser?.initialAuthState?.data?.attributes?.owner);
+      // console.log(this.currentUser?.initialAuthState?.data?.attributes?.owner);
       this.isLoading = false;
       this.menu = this.menu.map((item) => {
         if (item.route === 'order-history/:id') {

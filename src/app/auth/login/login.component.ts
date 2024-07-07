@@ -67,7 +67,6 @@ export class LoginComponent implements OnInit, OnDestroy {
     //get the valued from the form username and password
     const formValues = submittedForm.value;
 
-    console.log('formValues', formValues);
     this.isLoading = true; // Start the spinner
     this.authService
       .login(formValues)

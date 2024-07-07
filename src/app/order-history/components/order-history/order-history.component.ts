@@ -34,7 +34,6 @@ export class OrderHistoryComponent implements OnInit {
       const userUUID = paramMap.get('id');
       this.artistId = paramMap.get('id');
 
-      console.log('userUUID', userUUID);
       const url = `${environment.api_base_url}/orders`;
 
       const params: Map<any, any> = new Map<any, any>();
@@ -45,7 +44,6 @@ export class OrderHistoryComponent implements OnInit {
         .set('page_length', String(100))
         .set('order_by', '[desc]created')
         .set('page_number', String(1));
-      console.log(params);
 
       this.orderHistoryService.getOrderHistoryResource(url, params).subscribe({
         next: (value: OrderHistoryResource) => {
@@ -56,7 +54,7 @@ export class OrderHistoryComponent implements OnInit {
             this.isLoading = true; // Keep loader if no results
           }
 
-          console.log('ORDER', this.orderHistory$);
+          // console.log('ORDER', this.orderHistory$);
         },
         error: (error) => {
           this.isLoading = true; // Keep loader on error
